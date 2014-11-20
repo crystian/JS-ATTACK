@@ -14,23 +14,32 @@
 		#editor {
 			margin: 20px;
 			position: absolute;
-			top: 50px;
+			top: 0;
+			bottom: 200px;
+			left: 0;
+			right: 0;
+		}
+		#result{
+			overflow: auto;
+			width: 90%;
+			position: absolute;
+			margin: 20px;
 			bottom: 0;
-			left: 10px;
-			right: 10px;
+			height: 200px;
 		}
 	</style>
 </head>
 <body>
 
-<pre id="editor">function foo(items) {
-    var i;
-    for (i = 0; i &lt; items.length; i++)  {
-        alert("Ace Rocks " + items[i]);
-    }
+<pre id="editor">function foo() {
+    //se espera una "a"
+	console.log("tambien sirve el console.log");
+
+	return "b";
 }
 
-foo(['a']);</pre>
+foo();</pre>
+<div id="result"></div>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

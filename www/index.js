@@ -1,7 +1,7 @@
 /**
  * Created by Crystian on 11/20/2014.
  */
-var evalWorker;
+var evalWorker, result = document.getElementById('result');
 
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/twilight");
@@ -20,6 +20,9 @@ editor.commands.addCommand({
 	readOnly: true // false if this command should not apply in readOnly mode
 });
 
+
+
+
 function runCode() {
 	//editor.setReadOnly(true);
 	//$('#test button').attr('disabled','disabled');
@@ -36,20 +39,20 @@ function runCode() {
 
 }
 
+
+
+function log(m){
+	console.log(m);
+	result.innerHTML += m +'<br>';
+	result.scrollTop = result.scrollHeight;
+}
+
 function validate(i) {
-	//clearTimeout(testTimeout);
-	//
-	//if(currentTest.o == i) {
-	//
-	//	log("RIGHT: " + i + " is the right answer.",'good');
-	//	setTimeout(test,500);
-	//
-	//} else {
-	//
-	//	log("WRONG: Got " + i + " but expected " + currentTest.o + ". Try again!",'bad');
-	//	backToGame();
-	//
-	//}
+
+	console.log('validate',i);
+
+	var a = '<span style="color:'+ (('a'===i) ? 'green': 'red') +'">'+('a'===i)+'</span>';
+	log('se esperaba una "a" y llego una "'+i+'" = '+ a);
 
 }
 
@@ -63,11 +66,11 @@ function setupWorker() {
 			handleError(m.data.content);
 		}
 		if(m.data.type == 'log') {
-			console.log(m.data.content);
+			log(m.data.content);
 		}
 	};
 	newWorker.onerror = function (m) {
-		handleError(m.message);
+		handleError(m.message +'\n');
 	};
 	return newWorker;
 }
