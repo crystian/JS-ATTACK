@@ -1,0 +1,22 @@
+{
+  "name": "JS-ATTACK",
+  "version": "0.0.1",
+  "description": "Cuanto sabes de javascript?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "test",
+    "javascript",
+    "test",
+    "test",
+    "yourself"
+  ],
+  "author": "Crystian",
+  "license": "ISC",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  }
+}
