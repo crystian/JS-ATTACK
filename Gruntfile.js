@@ -20,14 +20,14 @@ module.exports = function(grunt) {
 			options: {
 				port: 9000,
 				logger: 'dev',
-				hostname: '10.0.1.2',
+				hostname: 'localhost',
 				base: '.'
 			},
 			serve: {
 				options: {
 					livereload: false,
 					keepalive: true,
-					open: 'http://10.0.1.2:9000/www'
+					open: 'http://localhost:9000/www'
 				}
 			}
 		}
