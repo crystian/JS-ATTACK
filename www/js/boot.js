@@ -128,9 +128,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       currentWindowOnload();
     }
     htmlReporter.initialize();
-    env.execute();
   };
 
+
+  window.runJasmineTest = function (){
+    htmlReporter.initialize();
+    env.execute();
+  };
   /**
    * Helper function for readability above.
    */
