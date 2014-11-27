@@ -23,4 +23,4 @@ var console = { log: function(x) {
 
   postMessage({ type: 'log', content : x }) }
   
-}
+};
