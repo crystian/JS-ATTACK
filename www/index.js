@@ -58,20 +58,24 @@ function validate(i) {
 
 function setupWorker() {
 	var newWorker = new Worker("eval.js");
+
 	newWorker.onmessage = function (m) {
-		if(m.data.type == 'result') {
-			validate(m.data.content);
-		}
-		if(m.data.type == 'error') {
-			handleError(m.data.content);
-		}
-		if(m.data.type == 'log') {
-			log(m.data.content);
+		switch(m.data.type){
+			case 'result':
+				validate(m.data.content);
+				break;
+			case 'error':
+				handleError(m.data.content);
+				break;
+			default:
+				log(m.data.content);
 		}
 	};
+
 	newWorker.onerror = function (m) {
 		handleError(m.message +'\n');
 	};
+
 	return newWorker;
 }
 function handleError(i) {
@@ -81,13 +85,9 @@ function handleError(i) {
 $('document').ready(function () {
 
 	if(!!window.Worker) {
-
 		evalWorker = setupWorker();
-
 	} else {
-
 		console.log('fail');
-
 	}
 
 	$(document).keypress(function(event) {
