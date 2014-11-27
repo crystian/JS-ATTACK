@@ -32,6 +32,8 @@ function runCode() {
 
 		try {
 			//implentar thread de control
+			//Aca tenes que cambiar el worker por el iframe
+			//https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage
 			evalWorker.postMessage(code);
 		} catch(e) {
 			console.log('algo paso :S');
