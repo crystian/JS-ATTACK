@@ -103,7 +103,7 @@ $('document').ready(function () {
 		console.log('fail');
 	}
 
-	$(document).keypress(function(event) {
+	$('document').keypress(function(event) {
 		if (event.which == 13 && (event.ctrlKey||event.metaKey)) {
 			event.preventDefault();
 			runCode();
@@ -111,5 +111,7 @@ $('document').ready(function () {
 		}
 		return true;
 	});
+  
+    $('#editor').css('font-size', '12px');
 
 });
