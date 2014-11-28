@@ -23,24 +23,43 @@
 
     </header>
     <div class="registration-form">
-      <form role="form" action="">
+      <form role="form" id="register-form">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter your name" required >
+          <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
         </div>
         <div class="form-group">
           <label for="e-mail">Email address</label>
-          <input type="email" class="form-control" id="e-mail" placeholder="Enter email" required >
+          <input type="email" class="form-control" id="e-mail" placeholder="Enter email" required>
         </div>
         <div class="form-group">
           <label for="telephone">Telephone number</label>
-          <input type="tel" class="form-control" id="telephone" placeholder="Enter your telephone number" required 
-                 pattern="^(15)?[ -]?\d{2,4}[ -]?\d{4}$">
+          <input type="tel" class="form-control" id="telephone" placeholder="Enter your telephone number" required>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+      $('document').ready(function() {
+        $('#register-form').submit(function(e){
+          e.preventDefault();
+          
+          var data = {};
+          
+          data.name = $('#name').val();
+          data.email = $('#e-mail').val();
+          data.phone = $('#telephone').val();
+          
+          console.dir(data);
+          $.post('/register', data, 'application/json').done(function () {
+            //TODO: Do Something, maybe navigate to the first exercise
+          }).fail( function () {
+            //TODO: inform user about the faillure
+          });
+        });
+      });
+    </script>
   </body>
 </html>

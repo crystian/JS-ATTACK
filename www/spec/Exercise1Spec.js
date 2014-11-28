@@ -4,7 +4,7 @@ describe("Exercise 1", function() {
 //    song = new Song();
 //  });
 
-  it("Should be defined", function(){
+  it("foo function should be defined", function(){
     expect(foo).toBeDefined();
   });
 

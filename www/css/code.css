@@ -12,6 +12,7 @@
   left: 0px;
   bottom: 0px;
   right: 300px;
+  margin: 5px;
 }
 
 #right-side {
@@ -21,4 +22,8 @@
   bottom: 0px;
   right: 0px;
   padding: 5px;
+}
+
+#sandbox {
+  width: 100%;
 }
