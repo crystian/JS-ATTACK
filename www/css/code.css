@@ -1,29 +1,83 @@
+body {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    padding: 60px 0 150px;
+}
+section.main {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
 #banner {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  height: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 60px;
+    padding: 10px 0;
+}
+
+#banner img {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+#banner h1 {
+    text-align: center;
+    margin: 0;
 }
 
 #left-side {
-  position: absolute;
-  top: 100px;
-  left: 0px;
-  bottom: 0px;
-  right: 300px;
-  margin: 5px;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    bottom: 0px;
+    width: 50%;
 }
 
 #right-side {
-  position: absolute;
-  top: 100px;
-  width: 300px;
-  bottom: 0px;
-  right: 0px;
-  padding: 5px;
+    position: absolute;
+    top: 0px;
+    width: 50%;
+    bottom: 0px;
+    right: 0px;
+    height: 100%;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+}
+#controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+#description {
+    height: 100%;
+    overflow: auto;
 }
 
 #sandbox {
-  width: 100%;
+    width: 100%;
+}
+
+#editor {
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 12px;
+}
+#result{
+    overflow: auto;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 140px;
+    background: #eee;
 }

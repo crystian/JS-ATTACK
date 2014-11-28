@@ -103,7 +103,7 @@ $('document').ready(function () {
 		console.log('fail');
 	}
   
-    $('#banner').html('<h1> ' + window.location.hash +' </h1>');
+    $('#banner').find('h1').text(window.location.hash);
 
 	$('document').keypress(function(event) {
 		if (event.which == 13 && (event.ctrlKey||event.metaKey)) {
@@ -114,7 +114,7 @@ $('document').ready(function () {
 		return true;
 	});
   
-    $('#editor').css('font-size', '12px');
+    $('#editor').css('font-size', '16px');
   
     $('#submit-exercise').click(function(){
       runCode();
