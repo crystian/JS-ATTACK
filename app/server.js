@@ -44,8 +44,7 @@ app.post('/register', function(req, res){
 });
 
 app.get('/course', function(req, res){
-    res.send("Hellow world");
-
+    res.sendFile('code.html', { root: './../www'});
 });
 
 app.get('/course/:track', function(req, res){
