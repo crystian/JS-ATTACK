@@ -55,6 +55,7 @@
           console.dir(data);
           $.post('/register', data, 'application/json').done(function () {
             //TODO: Do Something, maybe navigate to the first exercise
+            window.location.href = '/www/code.html#' + data.name;
           }).fail( function () {
             //TODO: inform user about the faillure
           });
