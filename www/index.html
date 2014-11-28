@@ -7,37 +7,56 @@
 	<title>Editor</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="./css/index.css"/>
 	<style type="text/css" media="screen">
 		body {
 			overflow: hidden;
 		}
+      
 		#editor {
-			margin: 20px;
+			margin: 5px;
 			position: absolute;
-			top: 0;
-			bottom: 200px;
-			left: 0;
-			right: 0;
+			top: 0px;
+			bottom: 100px;
+			left: 0px;
+			right: 0px;
+            font-size: 12px;  
 		}
 		#result{
 			overflow: auto;
-			width: 90%;
+			width: 100%;
 			position: absolute;
-			margin: 20px;
+			margin: 5px;
 			bottom: 0;
-			height: 200px;
+			height: 100px;
 		}
 	</style>
 </head>
 <body>
+  
+  <header id="banner">
+    
+  </header>
 
-<pre id="editor">function foo() {
+<div id="left-side">
+  <pre id="editor">function foo() {
     return 1;
 }
 
-foo();</pre>
-<div id="result">
-	<iframe id="sandbox" src="SpecRunner.html" frameborder="0"></iframe>
+foo();
+  </pre>
+  <div id="result">
+      <iframe id="sandbox" src="SpecRunner.html" frameborder="0"></iframe>
+  </div>
+</div>
+<div id="right-side">
+  <div id="controls">
+    <div class="btn btn-primary">Submit</div>
+    <div class="btn">Skip</div>
+  </div>
+  <div id="description">
+    
+  </div>
 </div>
 
 
