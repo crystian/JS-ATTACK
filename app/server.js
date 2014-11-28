@@ -8,7 +8,7 @@ var Datastore = require('nedb');
 var Promise = require('bluebird');
 var app = express();
 
-var db = new Datastore({filename: './datastores/user.db', autoload: true});
+var db = new Datastore({filename: './datastore/user.db', autoload: true});
 Promise.promisifyAll(Object.getPrototypeOf(db));
 
 app.use(bodyParser.json());
@@ -24,13 +24,23 @@ app.post('/register', function(req, res){
     var phone = req.param('phone');
 
     if([name, email, phone].some(function(el){ return !el; })){
-        return res.send({})
+        return res.status(500).json({ data: { code: 500, msg: "Something went wrong"}});
     }
+
+    var doc = {
+        name: name,
+        email: email,
+        phone: phone
+    };
+
+    db.insertAsync(doc).then(function(newDoc){
+        console.log(newDoc);
+        return res.sendStatus(200);
+    });
+
     console.log(req.param('name'));
     console.log(req.param('email'));
     console.log(req.param('phone'));
-
-    return res.sendStatus(200);
 });
 
 app.get('/course', function(req, res){
