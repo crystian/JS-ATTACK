@@ -1,0 +1,24 @@
+#banner {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100px;
+}
+
+#left-side {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  bottom: 0px;
+  right: 300px;
+}
+
+#right-side {
+  position: absolute;
+  top: 100px;
+  width: 300px;
+  bottom: 0px;
+  right: 0px;
+  padding: 5px;
+}
