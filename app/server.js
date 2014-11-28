@@ -3,19 +3,42 @@
  */
 
 var express = require('express');
+var bodyParser = require('body-parser');
+var Datastore = require('nedb');
+var Promise = require('bluebird');
 var app = express();
 
-app.get('/', function(req, res, next){
+var db = new Datastore({filename: './datastores/user.db', autoload: true});
+Promise.promisifyAll(Object.getPrototypeOf(db));
+
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/../www'));
+
+app.get('/', function(req, res){
+    res.sendFile('index.html', { root: './../www'});
+});
+
+app.post('/register', function(req, res){
+    var name = req.param('name');
+    var email = req.param('email');
+    var phone = req.param('phone');
+
+    if([name, email, phone].some(function(el){ return !el; })){
+        return res.send({})
+    }
+    console.log(req.param('name'));
+    console.log(req.param('email'));
+    console.log(req.param('phone'));
+
+    return res.sendStatus(200);
+});
+
+app.get('/course', function(req, res){
     res.send("Hellow world");
 
 });
 
-app.get('/course', function(req, res, next){
-    res.send("Hellow world");
-
-});
-
-app.get('/course/:track', function(req, res, next){
+app.get('/course/:track', function(req, res){
     res.send("Hellow world");
 
 });
