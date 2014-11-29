@@ -90,6 +90,29 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     createTextNode: function() { return document.createTextNode.apply(document, arguments); },
     timer: new jasmine.Timer()
   });
+  var specDone = htmlReporter.specDone;
+  var jasmineDone = htmlReporter.jasmineDone;
+  var countFailures = 0;
+  var _parent;
+
+  htmlReporter.specDone = function(results) {
+    specDone(results);
+
+    if(results.status !== 'passed'){
+      countFailures++;
+    }
+  };
+
+  htmlReporter.jasmineDone = function(){
+    jasmineDone();
+
+    if(countFailures === 0){
+      console.log('message sent!');
+      window.parent.postMessage('success', '*');
+    } else {
+      window.parent.postMessage('failed', '*');
+    }
+  };
 
   /**
    * The `jsApiReporter` also receives spec results, and is used by any environment that needs to extract the results  from JavaScript.
