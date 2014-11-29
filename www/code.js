@@ -97,11 +97,11 @@ function handleError(i) {
 
 $('document').ready(function () {
 
-	if(!!window.Worker) {
-		evalWorker = setupWorker();
-	} else {
-		console.log('fail');
-	}
+	//if(!!window.Worker) {
+	//	evalWorker = setupWorker();
+	//} else {
+	//	console.log('fail');
+	//}
   
     $('#banner').find('h1').text(window.location.hash);
 
