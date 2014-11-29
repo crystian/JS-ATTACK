@@ -53,11 +53,18 @@
           data.phone = $('#telephone').val();
           
           console.dir(data);
-          $.post('/register', data, 'application/json').done(function () {
-            //TODO: Do Something, maybe navigate to the first exercise
-            window.location.href = '/www/code.html#' + data.name;
-          }).fail( function () {
-            //TODO: inform user about the faillure
+
+          $.ajax({
+            url:'/register',
+            type:"POST",
+            data:JSON.stringify(data),
+            contentType:"application/json; charset=utf-8",
+            success: function(){
+              window.location.href = '/course/1';
+            },
+            error: function(){
+              console.log(arguments);
+            }
           });
         });
       });

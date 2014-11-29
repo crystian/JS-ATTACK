@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <button id="test-code">Test</button>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script>
+    $(function(){
+      $('#test-code').on('click', function(e){
+        e.preventDefault();
+
+        var data = {};
+
+        data.exercise = '1';
+        data.script = 'function exercise1(){\n\treturn 1;\n\t}';
+
+        console.dir(data);
+        $.ajax({
+          url:'/success',
+          type:"POST",
+          data:JSON.stringify(data),
+          contentType:"application/json; charset=utf-8",
+          success: function(){
+
+          },
+          error: function(){
+            console.log(arguments);
+          }
+        });
+        $.post('/success', data, 'application/json').done(function () {
+          //TODO: Do Something, maybe navigate to the first exercise
+          window.location.href = '/course';
+        }).fail( function (err) {
+          console.log(arguments);
+          //TODO: inform user about the faillure
+        });
+      });
+    });
+  </script>
+</body>
+</html>

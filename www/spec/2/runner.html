@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../bower_components/jasmine/lib/jasmine-core/jasmine.css">
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
+    <script src="../../bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="../../js/boot.js"></script>
+
+    <!-- include spec files here... -->
+    <script src="ExerciseSpec.js"></script>
+  
+  <style>
+      .jasmine_html-reporter .symbol-summary {
+        display: inline-block;
+        vertical-align: top;
+      }
+    
+      .jasmine_html-reporter .banner {
+        display: inline-block;
+        min-width: 300px;
+        margin: 14px 0px;
+      }
+    
+  </style>
+</head>
+
+<body>
+    
+    <script>
+        window.addEventListener("message", receiveMessage, false);
+
+        function receiveMessage(event)
+        {
+            var scriptCode = event.data;
+            var scriptNode = document.createElement('script');
+            document.body.appendChild(scriptNode);
+
+            scriptNode.innerHTML = scriptCode;
+            runJasmineTest();
+        }
+      
+        $('document').ready(function () {
+          parent.postMessage('sendcode', '*');
+        });
+    </script>
+</body>
+</html>
